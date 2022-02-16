@@ -1,0 +1,14 @@
+ADD USER FORM
+                       
+                       Registration Form:
+
+[Field]                                           Name:
+[Number Field]                                    EmployeeID: 
+[Email ID Field]                                  Email: 
+[Number Field]                                    Mobile No.: 
+[Calender Field]                                  Birth Date: 
+[ReadOnly- Not editable by user]                  Age: 
+[Radio Field]                                     Gender: 
+[Text Field]                                      Blood Group:
+[Text Field]                                      Department:
+
