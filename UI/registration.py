@@ -1,4 +1,9 @@
 from tkinter import *
+import regex as re
+
+def ude(Exception):
+    def __init__(self, str1):
+        print(str1)
 
 win = Tk()
 
@@ -35,41 +40,68 @@ department_value = StringVar()
 
 
 Label(frame,text="Add User",font=("calibri", 20),bg="#FFFFFF").grid(columnspan=2,padx=30,pady=30)
+def inputName():
 
-name = Label(frame , text="Name",font=("calibri", 14),bg="#FFFFFF").grid(row=2,column=0,padx=3,pady=3,sticky="w")
-name_entry = Entry(frame , textvariable= name_value).grid(row=2,column=1,padx=3,pady=3)
+    name = Label(frame , text="Name",font=("calibri", 14),bg="#FFFFFF").grid(row=2,column=0,padx=3,pady=3,sticky="w")
+    name_entry = Entry(frame , textvariable= name_value).grid(row=2,column=1,padx=3,pady=3)
+    try:
+            if not name.isalpha():
+                raise ude("Name should contain only characters.")
 
-employeeId = Label(frame , text="Employee ID ",font=("calibri", 14),bg="#FFFFFF").grid(row=3,column=0,padx=3,pady=3,sticky="w")
-employeeid_entry = Entry(frame , textvariable=employeeId_value).grid(row=3,column=1,padx=3,pady=3)
+    except Exception as e:
+            print()
+            return False
+    else:
+            return True
 
-email=Label(frame, text="Email ", font=("calibri", 14),bg="#FFFFFF").grid(row=4,column=0,padx=3,pady=3,sticky="w")
-email_entry = Entry(frame , textvariable=email_value).grid(row=4,column=1,padx=3,pady=3)
+def inputEmpId():
+    employeeId = Label(frame , text="Employee ID ",font=("calibri", 14),bg="#FFFFFF").grid(row=3,column=0,padx=3,pady=3,sticky="w")
+    employeeid_entry = Entry(frame , textvariable=employeeId_value).grid(row=3,column=1,padx=3,pady=3)
+def inputemail():
+    email=Label(frame, text="Email ", font=("calibri", 14),bg="#FFFFFF").grid(row=4,column=0,padx=3,pady=3,sticky="w")
+    email_entry = Entry(frame , textvariable=email_value).grid(row=4,column=1,padx=3,pady=3)
+    # pattern=r'\[A-Za-z0-9._%+-]+@[A-Za-z0-9._%+-]\.[A-Z|a-z]{2,}\b'
+    # if re.fullmatch(pattern,email) is None:
+    #     return False
+    # self.show_message()
+    # return True
 
-mobileNo=Label(frame,text="Mobile No. ",font=("calibri", 14),bg="#FFFFFF").grid(row=5,column=0,padx=3,pady=3,sticky="w")
-mobileno_entry = Entry(frame , textvariable=mobileNo_value).grid(row=5,column=1,padx=3,pady=3)
+def inputMobileNo():
+    mobileNo=Label(frame,text="Mobile No. ",font=("calibri", 14),bg="#FFFFFF").grid(row=5,column=0,padx=3,pady=3,sticky="w")
+    mobileno_entry = Entry(frame , textvariable=mobileNo_value).grid(row=5,column=1,padx=3,pady=3)
+def inputDOB():
+    dateOfBirth=Label(frame,text="Birth Date ",font=("calibri", 14),bg="#FFFFFF").grid(row=6,column=0,padx=3,pady=3,sticky="w")
+    dateofbirth_entry = Entry(frame , textvariable=dateOfBirth_value).grid(row=6,column=1,padx=3,pady=3)
+def inputAge():
+    age=Label(frame,text="Age ", font=("calibri", 14),bg="#FFFFFF").grid(row=7,column=0,padx=3,pady=3,sticky="w")
+    age_entry = Entry(frame , textvariable=age_value).grid(row=7,column=1,padx=3,pady=3)
+def inputGender():
+    gender=Label(frame,text="Gender ",font=("calibri", 14),bg="#FFFFFF").grid(row=8,column=0,padx=6,pady=3,sticky="w")
 
-dateOfBirth=Label(frame,text="Birth Date ",font=("calibri", 14),bg="#FFFFFF").grid(row=6,column=0,padx=3,pady=3,sticky="w")
-dateofbirth_entry = Entry(frame , textvariable=dateOfBirth_value).grid(row=6,column=1,padx=3,pady=3)
-
-age=Label(frame,text="Age ", font=("calibri", 14),bg="#FFFFFF").grid(row=7,column=0,padx=3,pady=3,sticky="w")
-age_entry = Entry(frame , textvariable=age_value).grid(row=7,column=1,padx=3,pady=3)
-
-gender=Label(frame,text="Gender ",font=("calibri", 14),bg="#FFFFFF").grid(row=8,column=0,padx=6,pady=3,sticky="w")
-
-Radiobutton(frame, text='Male',variable=gender_value,value=1,bg="#FFFFFF").grid(row=8,column=1)
-Radiobutton(frame, text='Female',variable=gender_value,value=2,bg="#FFFFFF").grid(row=8,columnspan=2)
-
-bloodGroup=Label(frame,text="Blood Group ",font=("calibri", 14),bg="#FFFFFF").grid(row=9,column=0,padx=3,pady=3,sticky="w")
-bloodgroup_entry = Entry(frame , textvariable=bloogGroup_value).grid(row=9,column=1,padx=3,pady=3)
-
-department=Label(frame,text="Department ",font=("calibri", 14),bg="#FFFFFF").grid(row=10,column=0,padx=3,pady=3,sticky="w")
-department_entry = Entry(frame , textvariable=department_value).grid(row=10,column=1,padx=3,pady=3)
-
-
-
-Button(frame, text="submit", command=login,height=1,width=8,padx=5,pady=3,bg="#606060",fg="#FFFFFF").grid(columnspan=2,padx=3,pady=30)
+    Radiobutton(frame, text='Male',variable=gender_value,value=1,bg="#FFFFFF").grid(row=8,column=1)
+    Radiobutton(frame, text='Female',variable=gender_value,value=2,bg="#FFFFFF").grid(row=8,columnspan=2)
+def inputBloodGroup():
+    bloodGroup=Label(frame,text="Blood Group ",font=("calibri", 14),bg="#FFFFFF").grid(row=9,column=0,padx=3,pady=3,sticky="w")
+    bloodgroup_entry = Entry(frame , textvariable=bloogGroup_value).grid(row=9,column=1,padx=3,pady=3)
+def inputDepartment():
+    department=Label(frame,text="Department ",font=("calibri", 14),bg="#FFFFFF").grid(row=10,column=0,padx=3,pady=3,sticky="w")
+    department_entry = Entry(frame , textvariable=department_value).grid(row=10,column=1,padx=3,pady=3)
 
 
+def inputButton():
+    Button(frame, text="submit", command=login,height=1,width=8,padx=5,pady=3,bg="#606060",fg="#FFFFFF").grid(columnspan=2,padx=3,pady=30)
+
+inputName()
+inputEmpId()
+inputemail()
+inputMobileNo()
+inputDOB()
+inputAge()
+inputGender()
+inputBloodGroup()
+inputDepartment()
+inputButton()
+                    
 
 
 win.mainloop()
